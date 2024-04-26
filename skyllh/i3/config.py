@@ -17,7 +17,7 @@ def add_icecube_specific_analysis_required_data_fields(cfg):
     cfg : instance of Config
         The instance of Config holding the local configuration.
     """
-    cfg['datafields']['azi'] = DFS.ANALYSIS_EXP
-    cfg['datafields']['zen'] = DFS.ANALYSIS_EXP
-    cfg['datafields']['sin_dec'] = DFS.ANALYSIS_EXP
-    cfg['datafields']['sin_true_dec'] = DFS.ANALYSIS_MC
+    # cfg['datafields']['azi'] = DFS.ANALYSIS_EXP
+    # cfg['datafields']['zen'] = DFS.ANALYSIS_EXP
+    cfg["datafields"]["sin_dec"] = DFS.ANALYSIS_EXP
+    cfg["datafields"]["sin_true_dec"] = DFS.ANALYSIS_MC

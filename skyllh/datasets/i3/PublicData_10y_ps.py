@@ -307,6 +307,7 @@ def create_dataset_collection(
                 np.linspace(-1.0, -0.25, 10 + 1),
                 np.linspace(-0.25, 0.0, 10 + 1),
                 np.linspace(0.0, 1.0, 10 + 1),
+                np.array([np.sin(np.deg2rad(-5))]),
             ]
         )
     )
@@ -335,6 +336,7 @@ def create_dataset_collection(
                 np.linspace(-0.95, -0.25, 25 + 1),
                 np.linspace(-0.25, 0.05, 15 + 1),
                 np.linspace(0.05, 1.0, 10 + 1),
+                np.array([np.sin(np.deg2rad(-5))]),
             ]
         )
     )
@@ -361,6 +363,7 @@ def create_dataset_collection(
                 np.linspace(-1.0, -0.75, 10 + 1),
                 np.linspace(-0.75, 0.0, 15 + 1),
                 np.linspace(0.0, 1.0, 20 + 1),
+                np.array([np.sin(np.deg2rad(-5))]),
             ]
         )
     )
@@ -387,6 +390,7 @@ def create_dataset_collection(
             [
                 np.linspace(b, 0.2, 5 + 1),
                 np.linspace(0.2, 1.0, 10),
+                np.array([np.sin(np.deg2rad(-5))]),
             ]
         )
     )
@@ -416,9 +420,11 @@ def create_dataset_collection(
                 np.linspace(-0.93, -0.3, 10 + 1),
                 np.linspace(-0.3, 0.05, 9 + 1),
                 np.linspace(0.05, 1.0, 18 + 1),
+                np.array([np.sin(np.deg2rad(-5))]),
             ]
         )
     )
+
     IC86_II.define_binning(
         "sin_dec", sin_dec_bins[np.sin(np.deg2rad(-5)) <= sin_dec_bins]
     )
@@ -559,13 +565,10 @@ def create_dataset_collection(
 
     dsc.set_exp_field_name_renaming_dict(
         {
-            "MJD[days]": "time",
             "log10(E/GeV)": "log_energy",
             "AngErr[deg]": "ang_err",
             "RA[deg]": "ra",
             "Dec[deg]": "dec",
-            "Azimuth[deg]": "azi",
-            "Zenith[deg]": "zen",
         }
     )
 
@@ -574,8 +577,6 @@ def create_dataset_collection(
         exp["ang_err"] = np.deg2rad(exp["ang_err"])
         exp["ra"] = np.deg2rad(exp["ra"])
         exp["dec"] = np.deg2rad(exp["dec"])
-        exp["azi"] = np.deg2rad(exp["azi"])
-        exp["zen"] = np.deg2rad(exp["zen"])
 
     dsc.add_data_preparation(convert_deg2rad)
 
