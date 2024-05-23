@@ -413,131 +413,7 @@ def create_dataset_collection(
     energy_bins = np.arange(0.5, 9.5 + 0.01, 0.125)
     IC86_II.define_binning('log_energy', energy_bins)
 
-    # ---------- IC86-III ------------------------------------------------------
-    IC86_III = I3Dataset(
-        name='IC86_III',
-        exp_pathfilenames='events/IC86_III_exp.csv',
-        mc_pathfilenames=None,
-        grl_pathfilenames='uptime/IC86_III_exp.csv',
-        **ds_kwargs,
-    )
-    IC86_III.grl_field_name_renaming_dict = grl_field_name_renaming_dict
-    IC86_III.add_aux_data_definition(
-        'eff_area_datafile', 'irfs/IC86_II_effectiveArea.csv')
-    IC86_III.add_aux_data_definition(
-        'smearing_datafile', 'irfs/IC86_II_smearing.csv')
-
-    IC86_III.add_binning_definition(
-        IC86_II.get_binning_definition('sin_dec'))
-    IC86_III.add_binning_definition(
-        IC86_II.get_binning_definition('log_energy'))
-
-    # ---------- IC86-IV -------------------------------------------------------
-    IC86_IV = I3Dataset(
-        name='IC86_IV',
-        exp_pathfilenames='events/IC86_IV_exp.csv',
-        mc_pathfilenames=None,
-        grl_pathfilenames='uptime/IC86_IV_exp.csv',
-        **ds_kwargs,
-    )
-    IC86_IV.grl_field_name_renaming_dict = grl_field_name_renaming_dict
-    IC86_IV.add_aux_data_definition(
-        'eff_area_datafile', 'irfs/IC86_II_effectiveArea.csv')
-    IC86_IV.add_aux_data_definition(
-        'smearing_datafile', 'irfs/IC86_II_smearing.csv')
-
-    IC86_IV.add_binning_definition(
-        IC86_II.get_binning_definition('sin_dec'))
-    IC86_IV.add_binning_definition(
-        IC86_II.get_binning_definition('log_energy'))
-
-    # ---------- IC86-V --------------------------------------------------------
-    IC86_V = I3Dataset(
-        name='IC86_V',
-        exp_pathfilenames='events/IC86_V_exp.csv',
-        mc_pathfilenames=None,
-        grl_pathfilenames='uptime/IC86_V_exp.csv',
-        **ds_kwargs,
-    )
-    IC86_V.grl_field_name_renaming_dict = grl_field_name_renaming_dict
-    IC86_V.add_aux_data_definition(
-        'eff_area_datafile', 'irfs/IC86_II_effectiveArea.csv')
-    IC86_V.add_aux_data_definition(
-        'smearing_datafile', 'irfs/IC86_II_smearing.csv')
-
-    IC86_V.add_binning_definition(
-        IC86_II.get_binning_definition('sin_dec'))
-    IC86_V.add_binning_definition(
-        IC86_II.get_binning_definition('log_energy'))
-
-    # ---------- IC86-VI -------------------------------------------------------
-    IC86_VI = I3Dataset(
-        name='IC86_VI',
-        exp_pathfilenames='events/IC86_VI_exp.csv',
-        mc_pathfilenames=None,
-        grl_pathfilenames='uptime/IC86_VI_exp.csv',
-        **ds_kwargs,
-    )
-    IC86_VI.grl_field_name_renaming_dict = grl_field_name_renaming_dict
-    IC86_VI.add_aux_data_definition(
-        'eff_area_datafile', 'irfs/IC86_II_effectiveArea.csv')
-    IC86_VI.add_aux_data_definition(
-        'smearing_datafile', 'irfs/IC86_II_smearing.csv')
-
-    IC86_VI.add_binning_definition(
-        IC86_II.get_binning_definition('sin_dec'))
-    IC86_VI.add_binning_definition(
-        IC86_II.get_binning_definition('log_energy'))
-
-    # ---------- IC86-VII ------------------------------------------------------
-    IC86_VII = I3Dataset(
-        name='IC86_VII',
-        exp_pathfilenames='events/IC86_VII_exp.csv',
-        mc_pathfilenames=None,
-        grl_pathfilenames='uptime/IC86_VII_exp.csv',
-        **ds_kwargs,
-    )
-    IC86_VII.grl_field_name_renaming_dict = grl_field_name_renaming_dict
-    IC86_VII.add_aux_data_definition(
-        'eff_area_datafile', 'irfs/IC86_II_effectiveArea.csv')
-    IC86_VII.add_aux_data_definition(
-        'smearing_datafile', 'irfs/IC86_II_smearing.csv')
-
-    IC86_VII.add_binning_definition(
-        IC86_II.get_binning_definition('sin_dec'))
-    IC86_VII.add_binning_definition(
-        IC86_II.get_binning_definition('log_energy'))
-
-    # ---------- IC86-II-VII ---------------------------------------------------
-    ds_list = [
-        IC86_II,
-        IC86_III,
-        IC86_IV,
-        IC86_V,
-        IC86_VI,
-        IC86_VII,
-    ]
-    IC86_II_VII = I3Dataset(
-        name='IC86_II-VII',
-        exp_pathfilenames=I3Dataset.get_combined_exp_pathfilenames(ds_list),
-        mc_pathfilenames=None,
-        grl_pathfilenames=I3Dataset.get_combined_grl_pathfilenames(ds_list),
-        **ds_kwargs,
-    )
-    IC86_II_VII.grl_field_name_renaming_dict = grl_field_name_renaming_dict
-    IC86_II_VII.add_aux_data_definition(
-        'eff_area_datafile',
-        IC86_II.get_aux_data_definition('eff_area_datafile'))
-
-    IC86_II_VII.add_aux_data_definition(
-        'smearing_datafile',
-        IC86_II.get_aux_data_definition('smearing_datafile'))
-
-    IC86_II_VII.add_binning_definition(
-        IC86_II.get_binning_definition('sin_dec'))
-    IC86_II_VII.add_binning_definition(
-        IC86_II.get_binning_definition('log_energy'))
-
+    
     # --------------------------------------------------------------------------
 
     dsc.add_datasets((
@@ -546,22 +422,13 @@ def create_dataset_collection(
         IC79,
         IC86_I,
         IC86_II,
-        IC86_III,
-        IC86_IV,
-        IC86_V,
-        IC86_VI,
-        IC86_VII,
-        IC86_II_VII,
     ))
 
     dsc.set_exp_field_name_renaming_dict({
-        'MJD[days]':    'time',
         'log10(E/GeV)': 'log_energy',
         'AngErr[deg]':  'ang_err',
         'RA[deg]':      'ra',
         'Dec[deg]':     'dec',
-        'Azimuth[deg]': 'azi',
-        'Zenith[deg]':  'zen',
     })
 
     def convert_deg2rad(data):
@@ -569,8 +436,6 @@ def create_dataset_collection(
         exp['ang_err'] = np.deg2rad(exp['ang_err'])
         exp['ra'] = np.deg2rad(exp['ra'])
         exp['dec'] = np.deg2rad(exp['dec'])
-        exp['azi'] = np.deg2rad(exp['azi'])
-        exp['zen'] = np.deg2rad(exp['zen'])
 
     dsc.add_data_preparation(convert_deg2rad)
 

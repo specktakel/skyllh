@@ -78,7 +78,6 @@ _BASECONFIG = {
         'ra': DFS.ANALYSIS_EXP,
         'dec': DFS.ANALYSIS_EXP,
         'ang_err': DFS.ANALYSIS_EXP,
-        'time': DFS.ANALYSIS_EXP,
         'log_energy': DFS.ANALYSIS_EXP,
         'true_ra': DFS.ANALYSIS_MC,
         'true_dec': DFS.ANALYSIS_MC,
