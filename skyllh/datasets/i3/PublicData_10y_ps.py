@@ -321,6 +321,7 @@ def create_dataset_collection(
                 np.array([np.log10(300)])
             ]
         )
+    )
             
     IC40.define_binning("log_energy", energy_bins[energy_bins>=np.log10(300)])
 
@@ -349,7 +350,7 @@ def create_dataset_collection(
     )
     IC59.define_binning("sin_dec", sin_dec_bins[np.sin(np.deg2rad(-5)) <= sin_dec_bins])
 
-    energy_bins = np.uique(np.concatenate([np.arange(2.0, 9.5 + 0.01, 0.125), np.array([np.log10(300)])]))
+    energy_bins = np.unique(np.concatenate([np.arange(2.0, 9.5 + 0.01, 0.125), np.array([np.log10(300)])]))
     IC59.define_binning("log_energy", energy_bins[energy_bins>=np.log10(300)])
 
     # ---------- IC79 ----------------------------------------------------------
@@ -376,7 +377,7 @@ def create_dataset_collection(
     )
     IC79.define_binning("sin_dec", sin_dec_bins[np.sin(np.deg2rad(-5)) <= sin_dec_bins])
 
-    energy_bins = np.uique(np.concatenate([np.arange(2.0, 9.5 + 0.01, 0.125), np.array([np.log10(300)])]))
+    energy_bins = np.unique(np.concatenate([np.arange(2.0, 9.5 + 0.01, 0.125), np.array([np.log10(300)])]))
     IC79.define_binning("log_energy", energy_bins[energy_bins>=np.log10(300)])
 
     # ---------- IC86-I --------------------------------------------------------
@@ -403,7 +404,7 @@ def create_dataset_collection(
     )
     IC86_I.define_binning("sin_dec", sin_dec_bins)
 
-    energy_bins = np.uique(np.concatenate([np.arange(1.0, 10.5 + 0.01, 0.125), np.array([np.log10(300)])]))
+    energy_bins = np.unique(np.concatenate([np.arange(1.0, 10.5 + 0.01, 0.125), np.array([np.log10(300)])]))
     IC86_I.define_binning("log_energy", energy_bins[energy_bins>=np.log10(300)])
 
     # ---------- IC86-II -------------------------------------------------------
@@ -436,7 +437,7 @@ def create_dataset_collection(
         "sin_dec", sin_dec_bins[np.sin(np.deg2rad(-5)) <= sin_dec_bins]
     )
 
-    energy_bins = np.uique(np.concatenate([np.arange(0.5, 9.5 + 0.01, 0.125), np.array([np.log10(300)])]))
+    energy_bins = np.unique(np.concatenate([np.arange(0.5, 9.5 + 0.01, 0.125), np.array([np.log10(300)])]))
     IC86_II.define_binning("log_energy", energy_bins[energy_bins>=np.log10(300)])
 
     # --------------------------------------------------------------------------
