@@ -7,7 +7,7 @@ Tutorials
 The tutorials below walk through common SkyLLH analysis tasks using IceCube public data.
 They progress from a basic steady-state point-source fit to more specialised techniques.
 
-The tutorials support both the `10-year <https://doi.org/10.7910/DVN/VKL316>`_ (IceTracks-DR1) and 14-year (TODO: add link) (IceTracks-DR2) IceCube public point-source datasets. They are automatically downloaded from `dataverse.harvard.edu <https://dataverse.harvard.edu/dataverse/icecube>`_ to a local cache directory (``~/.skyllh/cache``). To use custom dataset locations, set the ``cfg['repository']['base_path']`` to the desired path.
+The tutorials support both the `10-year <https://doi.org/10.7910/DVN/VKL316>`_ (IceTracks-DR1) and the `14-year <https://doi.org/10.7910/DVN/MMIIZA>`_ (IceTracks-DR2) IceCube public point-source datasets. They are automatically downloaded from `dataverse.harvard.edu <https://dataverse.harvard.edu/dataverse/icecube>`_ to a local cache directory (``~/.skyllh/cache``). To use custom dataset locations, set the ``cfg['repository']['base_path']`` to the desired path.
 
 To load respective datasets:
 
@@ -28,7 +28,7 @@ or
 
 Additional information about the IceCube public datasets can be found in the following references:
 
-- IceTracks-DR2: todo: link TBD
+- IceTracks-DR2: `IceCube Collaboration, "IceCube Second Track Data Release IceTracks-DR2: Data from 2008-2022 for Neutrino Source Searches", arXiv:2605.19040 (2026) <https://arxiv.org/abs/2605.19040>`_
 - IceTracks-DR1: `IceCube Collaboration, "IceCube Data for Neutrino Point-Source Searches Years 2008-2018", arXiv:2101.09836 (2021) <https://arxiv.org/abs/2101.09836>`_
 
 We provide an incomplete list of tutorials below. They are meant to illustrate how to perform a time-integrated point-source analysis using SkyLLH, but they are not exhaustive. We encourage users to explore the documentation and contribute additional tutorials covering other analysis types and techniques.
