@@ -23,10 +23,11 @@ def create_dataset_collection(
     https://doi.org/10.7910/DVN/MMIIZA.
 
     Note that compared to the previous data release:
-    - a finer declination binning is provided for the 14yr dataset, thus providing a more
-    accurate description of the detector response variations across the sky.
-    - the detector configuration and selection were homogenized for all data taking
-    seasong using the full, 86-string detector configuration (IC86).
+    - a finer declination binning is provided for the 14yr dataset, thus
+      providing a more accurate description of the detector response variations
+      across the sky;
+    - the detector configuration and selection were homogenized for all data
+      taking seasons using the full, 86-string detector configuration (IC86).
 
     Parameters
     ----------
@@ -59,8 +60,8 @@ def create_dataset_collection(
 
     dsc.description = r"""
     This data release contains 14 years of neutrino candidates observed by the IceCube Neutrino Obseravtory between the
-    years of 2008 and 2022. This data release can be considered a successor to [1], with changes between this release and
-    the previous version documented in [2]. Events from this release should not be combined with any other releases,
+    years of 2008 and 2022. This data release can be considered a successor to [1], with changes between this release
+    and the previous version documented in [2]. Events from this release should not be combined with any other releases,
     however this data release makes use of an identical event numbering convention as the IceCat-1 data release of high
     energy neutrino events, allowing for comparison of event content between the two samples.
 
@@ -91,32 +92,32 @@ def create_dataset_collection(
     exception of the addition of the "Run" field.
 
     - run: The IceCube run number containing the event. A "run" refers to a period of continuous data collection by the
-    IceCube detector with a stable, defined configuration. IceCube runs are often (but not always) 8 hours in duration,
-    and each run assigned a unique integer ID, forming the data contained in this column. Run IDs are fully unique, with
-    each run ID number appearing at most once.
+      IceCube detector with a stable, defined configuration. IceCube runs are often (but not always) 8 hours in
+      duration, and each run assigned a unique integer ID, forming the data contained in this column. Run IDs are fully
+      unique, with each run ID number appearing at most once.
 
     - event: The unique integer ID assigned to the event within a particular season. Note that event IDs reset at the
-    beginning of each season, meaning that to fully specify an event within the data set, one must specify the run, event
-    number, and subevent number.
+      beginning of each season, meaning that to fully specify an event within the data set, one must specify the run,
+      event number, and subevent number.
 
     - subevent: If multiple events occur within a particular trigger window, these events share an event ID, but are
-    assigned unique integer subevent IDs. Subevent IDs are indexed from 0 for each shared event ID. This serves as a way
-    to distinguish temporally coincident events in the data.
+      assigned unique integer subevent IDs. Subevent IDs are indexed from 0 for each shared event ID. This serves as a
+      way to distinguish temporally coincident events in the data.
 
     - MJD[days]: The MJD time (ut1) of the event interaction given to 1e-8 days, corresponding to roughly millisecond
-    precision.
+      precision.
 
     - log10(E/GeV): The reconstructed energy of a muon passing through the detector. The reconstruction follows the
-    prescription for unfolding the given in Section 8 of [3].
+      prescription for unfolding the given in Section 8 of [3].
 
     - AngErr[deg]: The estimated angular uncertainty on the reconstructed direction given in degrees. The angular
-    uncertainty is assumed to be symmetric in azimuth and zenith and is used to calculate the signal spatial
-    probabilities for each event following the procedure given in [6]. The errors are calibrated using simulated events
-    so that they provide correct coverage for an E^{-2} power law flux. This sample assumes a lower limit on the
-    estimated angular uncertainty of 0.2 degrees.
+      uncertainty is assumed to be symmetric in azimuth and zenith and is used to calculate the signal spatial
+      probabilities for each event following the procedure given in [6]. The errors are calibrated using simulated
+      events so that they provide correct coverage for an E^{-2} power law flux. This sample assumes a lower limit on
+      the estimated angular uncertainty of 0.2 degrees.
 
     - RA[deg], Dec[deg]: The right ascension and declination (J2000) corresponding to the particle's reconstructed
-    origin. Given in degrees.
+      origin. Given in degrees.
 
     - Azimuth[deg], Zenith[deg]: The local coordinates of the particle's reconstructed origin.
 
@@ -164,10 +165,10 @@ def create_dataset_collection(
     seasons, the effective area for IC86 should be used for IC86-2011 through IC86-2021.
 
     - log10(E_nu/GeV)_min, log10(E_nu/GeV)_max: The minimum and maximum of the energy bin used to caclulate the average
-    effective area. Note that this uses the neutrino's true energy and not the reconstructed muon energy.
+      effective area. Note that this uses the neutrino's true energy and not the reconstructed muon energy.
 
     - Dec_nu_min[deg], Dec_nu_max[deg]: The minimum and maximum of the declination of the neutrino origin. Again, note
-    that this is the true direction of the neutrino and not the reconstructed muon direction.
+      that this is the true direction of the neutrino and not the reconstructed muon direction.
 
     - A_Eff[cm^2]: The average effective area across a bin.
 
@@ -190,26 +191,26 @@ def create_dataset_collection(
     the smearing matrix files. All locations not given have a Fractional_Counts of 0.
 
     - log10(E_nu/GeV)_min, log10(E_nu/GeV)_max: The minimum and maximum of the energy bin used to caclulate the average
-    effective area. Note that this uses the neutrino's true energy and not the reconstructed muon energy.
+      effective area. Note that this uses the neutrino's true energy and not the reconstructed muon energy.
 
     - Dec_nu_min[deg], Dec_nu_max[deg]: The minimum and maximum of the declination of the neutrino origin. Again, note
-    that this is the true direction of the neutrino and not the reconstructed muon direction.
+      that this is the true direction of the neutrino and not the reconstructed muon direction.
 
     - log10(E/GeV)_min, log10(E/GeV)_max: The minimum and maximum bin edges corresponding to the reconstructed energy of
-    a muon passing through the detector. The reconstruction follows the prescription for unfolding the given in
-    Section 8 of [3].
+      a muon passing through the detector. The reconstruction follows the prescription for unfolding the given in
+      Section 8 of [3].
 
     - PSF_min[deg], PSF_max[deg]: The minimum and maximum of the true angle between the neutrino origin and the
-    reconstructed muon direction.
+      reconstructed muon direction.
 
     - AngErr_min[deg], AngErr_max[deg]: The estimated angular uncertainty on the reconstructed direction given in
-    degrees. The angular uncertainty is assumed to be symmetric in azimuth and zenith and is used to calculate the
-    signal spatial probabilities for each event following the procedure given in [4]. The errors are calibrated so that
-    they provide correct coverage for an E^{-2} power law flux. This sample assumes a lower limit on the estimated
-    angular uncertainty of 0.2 degrees.
+      degrees. The angular uncertainty is assumed to be symmetric in azimuth and zenith and is used to calculate the
+      signal spatial probabilities for each event following the procedure given in [4]. The errors are calibrated so
+      that they provide correct coverage for an E^{-2} power law flux. This sample assumes a lower limit on the
+      estimated angular uncertainty of 0.2 degrees.
 
     - Fractional_Counts: The fraction of simulated events falling within each 5D bin relative to all events
-    in the (E_nu, Dec_nu) bin.
+      in the (E_nu, Dec_nu) bin.
 
     -----------------------------------------
     # References
