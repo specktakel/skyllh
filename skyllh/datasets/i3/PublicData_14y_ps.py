@@ -59,7 +59,7 @@ def create_dataset_collection(
     dsc = DatasetCollection('Public Data 14-year point-source')
 
     dsc.description = r"""
-    This data release contains 14 years of neutrino candidates observed by the IceCube Neutrino Obseravtory between the
+    This data release contains 14 years of neutrino candidates observed by the IceCube Neutrino Observatory between the
     years of 2008 and 2022. This data release can be considered a successor to [1], with changes between this release
     and the previous version documented in [2]. Events from this release should not be combined with any other releases,
     however this data release makes use of an identical event numbering convention as the IceCat-1 data release of high
@@ -87,7 +87,7 @@ def create_dataset_collection(
     # Experimental data events
     -----------------------------------------
     The "events" folder contains the events observed in the 10 year sample of IceCube's point source neutrino selection.
-    Each file corresponds to a single season of IceCube datataking, including roughly one year of data. For each event,
+    Each file corresponds to a single season of IceCube data taking, including roughly one year of data. For each event,
     reconstructed particle information is included. Data fields are identical to those in IceTracks-DR1, with the
     exception of the addition of the "Run" field.
 
@@ -132,7 +132,7 @@ def create_dataset_collection(
     # Detector uptime
     -----------------------------------------
     In order to properly account for detector uptime, IceCube maintains "good run lists". These contain information
-    about "good runs", periods of datataking useful for analysis. Data may be marked unusable for various reasons,
+    about "good runs", periods of data taking useful for analysis. Data may be marked unusable for various reasons,
     including major construction or upgrade work, calibration runs, or other anomalies. The "uptime" folder contains
     lists of the good runs for each season.
 
