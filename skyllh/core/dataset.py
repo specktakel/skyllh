@@ -776,8 +776,12 @@ def post_transfer_unarchive(
         logger.warning(
             f'Failed to extract archive file "{archive_path}"! The file might be corrupted and will be removed. Error message: {err!s}'
         )
-        os.remove(archive_path)
-        raise err
+        try:
+            os.remove(archive_path)
+        except Exception as exc:
+            logger = get_logger(f'{__name__}.post_transfer_unarchive')
+            logger.warning(str(exc))
+        raise
 
     try:
         os.remove(archive_path)
